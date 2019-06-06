@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>
+      W3C TAG Observations on Private Browsing Modes
+    </title>
+    <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c-common">
+    </script>
+    <script class="remove">
+var respecConfig = {
+    specStatus: "draft-finding",
+    shortName: "private-browsing-modes",
+//    publishDate:  "2019-05-30",
+    //previousPublishDate:  "",
+    edDraftURI: "https://w3ctag.github.io/private-browsing-modes/",
+    // lcEnd: "3000-01-01",
+    // crEnd: "3000-01-01",
+    editors: [{
+            name: "Lukasz Olejnik",
+            company: "Invited Expert",
+        }
+    ],
+    wg: "Technical Architecture Group",
+    wgURI: "https://www.w3.org/2001/tag/",
+    wgPublicList: "www-tag",
+    wgPatentURI: "https://www.w3.org/2001/tag/disclosures",
+    otherLinks: [{
+            key: "Repository",
+            data: [{
+                    value: "We are on Github.",
+                    href: "https://github.com/w3ctag/private-browsing-modes"
+                }, {
+                    value: "File a bug.",
+                    href: "https://github.com/w3ctag/private-browsing-modes/issues"
+                }, {
+                    value: "Commit history.",
+                    href: "https://github.com/w3ctag/private-browsing-modes/commits/gh-pages"
+                }
+            ]
+        }
+    ],
+    inlineCSS: true,
+    noIDLIn: true,
+    noLegacyStyle: false,
+    };
+    </script>
+  </head>
+  <body>
+      <section id="sotd">
+      <p>
+        This document is a draft TAG Finding. It does not contain any normative content.
+      </p>
+    </section>
+    <section id="abstract">
+      <h2>Abstract</h2>
+<p>
+
+</p>
+    </section>
+    <section id="intro">
+      <h2>Introduction</h2>
+<p>
+The web is a complex ecosystem, with details often difficult to understand for ordinary users. 
+Privacy is among the most important elements that should be considered when designing software and services for users. Privacy has a broad meaning, so it is important to be considered for individual features, as well as holistically, several in conjunction.
+</p>
+
+<p>
+There is an observable trend towards treating privacy more seriously, as shown by reinforced interest in design, development and new features. Private browsing modes are perhaps the recently better known function that gained a broad adoption. Private browsing modes are offered in all major browsers, and when activated browsers tends to operate differently.
+</p>
+
+<p>
+While the actual name of the modes differ among vendors (i.e. “private mode”, “incognito”, “InPrivate”), all implementations share some basic common features, such as not saving content related to visited sites, their address in history, cookies or passwords to persistent storage. 
+</p>
+
+<p>
+Offering users features meant to improve the privacy of web browsing is commendable, but at the same time users should be aware of the actual guarantees of features advertised as improving privacy, to enable full comprehension of limitations. This note summarises a selection of observations by the TAG related to private browsing. It is not an exhaustive statement on this topic.
+</p>
+
+</section>
+<section id="non-std-guarantees">
+<h2>Privacy guarantees in privacy modes are not standard</h2>
+<p>
+Privacy modes currently focus on a limited but well defined scope. Privacy modes offer some layer of isolation from browsing in regular browsing mode. Specifically, state information (cookies, saved passwords, list of visited sites, and other forms of client-side storage) is not kept between browser sessions. This for example means that on-disk traces should not be retained by the browser between two sessions (which in some cases may potentially still be recovered with other means).
+</p>
+
+<p>
+Privacy modes among different browsers mean different things and provide different guarantees. There are no unified standardized rules of what a privacy mode means, although there are some similarities between different browsers such as not storing web browsing history or cookies.
+</p>
+
+<p>
+Private browsing modes have the potential of offering enhanced control to users, even when they are not providing strong technical guarantees (for example: private browsing modes generally protect against attacks on the local computer, not on the server; and fingerprinting techniques can be used to circumvent some private browsing modes).  Furthermore activation of such a mode  is a clear choice made by the user, indicating a desire for more privacy during browsing. As such, it should be honored.
+</p>
+
+</section>
+
+<section id="features-supporting-private-browsing">
+<h2>Web features supporting private browsing modes</h2>
+<p>
+Developers of new web features should consider how those features might need to differ in private browsing modes.  Given that these modes vary between implementations, the way a feature differs in private browsing mode may also be subject to variation between implementations.  Because of this, specification regarding  such differences may need to be informative rather than normative. Describing these differences in specifications is still valuable because it encourages implementers to consider the issues involved, and it shares the expertise of the specification authors.
+</p>
+
+<p>
+One constraint that applies to deciding how web features should behave differently in private browsing modes is that the use of private browsing mode should not be detectable by websites.  Therefore, this specification advice should describe differences that are not detectable (for example, storage mechanisms being transient rather than causing obvious errors).
+</p>
+
+</section>
+
+<section id="accessible-private-normal">
+<h2>The Web should be accessible in private and normal browsing modes</h2>
+<p>
+When the differences in browser behavior between privacy and standard browsing modes can be detected because of standardization or implementation details, websites might choose to degrade browsing experience (for example, not displaying content) when they detect the users in private browsing modes. This is undesirable.
+</p>
+</section>
+
+<section id="evolving">
+<h2>Private browsing mode are an evolving feature</h2>
+<p>
+Web privacy is a field of competition between web browsers. For example some browsers enable stricter tracking protection and content blocking, or even work towards integration of anonymization features (e.g. with Tor or similar technologies). While this means that private browsing modes are not prepared for standardization, the TAG welcomes this trend. At the same time, browser vendors should be transparent to the end user and make it clear what is or is not guaranteed when browsing in their private browsing modes.
+</p>
+
+<p>
+While seeing both the benefits and shortcomings of private browsing modes, virtuous competition in the field of privacy is desirable. Transparency is equally important. At some point when private browsing modes are a more stable feature and eventually converge into more common direction, there will be room for standardization. Meanwhile vendors and web feature authors should/must consider the implications of features on browsing in private mode, as well as to consider the existence of private browsing modes when thinking about feature design, to support Web Privacy by Design.
+</p>
+
+<p>
+Therefore, the TAG finds that:
+</p>
+<ul>
+  <li><p>As private browsing modes become an important part of the web, we applaud the browser vendors’ continued development in this area.</p></li>
+  <li><p>Spec authors should continue adding  further privacy friendly functions  when users are in private browsing mode.</p></li>
+  <li><p>Spec authors and browser vendors should work towards achieving  private browsing mode work in a way indistinguishable for i sites from the normal mode, to respect the user’s  users’ privacy in choosing it.</p></li>
+</ul>
+</section>
+
+  </body>
+</html>
+
+
