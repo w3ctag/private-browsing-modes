@@ -114,7 +114,7 @@ Private browsing modes have the potential of offering enhanced control to users,
 <section id="features-supporting-private-browsing">
 <h2>Web features supporting private browsing modes</h2>
 <p>
-Developers of new web features should consider how those features might need to differ in private browsing modes.  Given that these modes vary between implementations, the way a feature differs in private browsing mode may also be subject to variation between implementations. Because of this, specification regarding such differences may need to be informative rather than normative. Describing these differences in specifications is still valuable because it encourages implementers to consider the issues involved, and it shares the expertise of the specification authors. Similar considerations are <a href="https://github.com/w3cping/privacy-mode/blob/master/private-browsing.md">directed by PING</a>.
+Developers of new web features should consider how those features might need to differ in private browsing modes.  Given that these modes vary between implementations, the way a feature differs in private browsing mode may also be subject to variation between implementations. Specifications can describe the differences informatively, or declare several behaviors conforming. Describing these differences in specifications is valuable because it encourages implementers to consider the issues involved, and it shares the expertise of the specification authors. Similar considerations are <a href="https://github.com/w3cping/privacy-mode/blob/master/private-browsing.md">directed by PING</a>.
 </p>
 
 <p>
@@ -128,6 +128,9 @@ Differences in behavior can take several distinct forms, for example:
   <li><p>permission requests may be denied by default; or</p></li>
   <li><p>an API may fail with an error.</p></li>
 </ul>
+<p>
+Specification authors should be explicit about which of these behaviors is intended. When a feature is expected to behave differently in private browsing mode, specifications should describe the normal and private-mode behaviors explicitly and declare both of them conforming.
+</p>
 
 <p>
 One constraint that applies to deciding how web features should behave differently in private browsing modes is that the use of private browsing mode should not be detectable by websites.  Therefore, this specification advice should describe differences that are not detectable. For example, errors or API absence can reveal private browsing mode when they are distinguishable from outcomes possible in normal browsing.
@@ -165,6 +168,7 @@ Therefore, the TAG finds that:
 <ul>
   <li><p>As private browsing modes become an important part of the web, we applaud the browser vendors’ continued development in this area.</p></li>
   <li><p>Spec authors should continue adding further privacy-friendly functions when users are in private browsing mode.</p></li>
+  <li><p>When a feature is expected to behave differently in private browsing modes, spec authors should describe both behaviors explicitly and declare both of them conforming.</p></li>
   <li><p>Spec authors and browser vendors should work towards making private browsing mode indistinguishable to websites from normal browsing, to respect the user’s privacy in choosing it.</p></li>
 </ul>
 </section>
