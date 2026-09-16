@@ -136,6 +136,10 @@ Specification authors should be explicit about which of these behaviors is inten
 One constraint that applies to deciding how web features should behave differently in private browsing modes is that the use of private browsing mode should not be detectable by websites.  Therefore, this specification advice should describe differences that are not detectable. For example, errors or API absence can reveal private browsing mode when they are distinguishable from outcomes possible in normal browsing.
 </p>
 
+<p>
+Some web features involve parties beyond the browser and the website. For example, in the <a href="https://www.w3.org/TR/digital-credentials/">Digital Credentials API</a>, the browser mediates between a website and a digital wallet. By default, the wallet is not informed whether the user is browsing privately. Specification authors should consider allowing the browser to communicate the browsing mode to that party. The wallet could then avoid retaining a record of the interaction or apply stronger privacy protections such as zero-knowledge proofs. The mechanism must ensure that the additional disclosure does not lead to differences observable by the site. As placing conformance requirements on third-party dependencies is difficult, such guidance will likely remain non-normative.
+</p>
+
 </section>
 
 <section id="lockdown-modes">
