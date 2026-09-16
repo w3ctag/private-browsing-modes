@@ -118,7 +118,19 @@ Developers of new web features should consider how those features might need to 
 </p>
 
 <p>
-One constraint that applies to deciding how web features should behave differently in private browsing modes is that the use of private browsing mode should not be detectable by websites.  Therefore, this specification advice should describe differences that are not detectable (for example, storage mechanisms being transient rather than causing obvious errors).
+Differences in behavior can take several distinct forms, for example:
+</p>
+<ul>
+  <li><p>a storage mechanism may become transient, with data discarded when the private browsing session ends;</p></li>
+  <li><p>a feature may behave as if no data is available (for example, no stored credentials or autofill data being offered);</p></li>
+  <li><p>an API may return generic or placeholder data instead of the user’s actual data;</p></li>
+  <li><p>data may be returned with reduced precision;</p></li>
+  <li><p>permission requests may be denied by default; or</p></li>
+  <li><p>an API may fail with an error.</p></li>
+</ul>
+
+<p>
+One constraint that applies to deciding how web features should behave differently in private browsing modes is that the use of private browsing mode should not be detectable by websites.  Therefore, this specification advice should describe differences that are not detectable. For example, errors or API absence can reveal private browsing mode when they are distinguishable from outcomes possible in normal browsing.
 </p>
 
 </section>
