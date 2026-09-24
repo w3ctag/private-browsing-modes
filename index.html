@@ -114,7 +114,8 @@ Private browsing modes have the potential of offering enhanced control to users,
 <section id="features-supporting-private-browsing">
 <h2>Web features supporting private browsing modes</h2>
 <p>
-Developers of new web features should consider how those features might need to differ in private browsing modes.  Given that these modes vary between implementations, the way a feature differs in private browsing mode may also be subject to variation between implementations. Specifications can describe the differences informatively, or declare several behaviors conforming. Describing these differences in specifications is valuable because it encourages implementers to consider the issues involved, and it shares the expertise of the specification authors. Similar considerations are <a href="https://github.com/w3cping/privacy-mode/blob/master/private-browsing.md">directed by PING</a>.
+Developers of new web features should consider how those features might need to differ in private browsing modes.  Given that these modes vary between implementations, the way a feature differs in private browsing mode may also be subject to variation between implementations. 
+To support this, specifications can describe the differences informatively, or declare several behaviors conforming. Describing these differences in specifications is valuable because it encourages implementers to consider the issues involved, and it shares the expertise of the specification authors. Similar considerations are <a href="https://github.com/w3cping/privacy-mode/blob/master/private-browsing.md">directed by PING</a>.
 </p>
 
 <p>
@@ -137,7 +138,8 @@ One constraint that applies to deciding how web features should behave different
 </p>
 
 <p>
-Some web features involve parties beyond the browser and the website. For example, in the <a href="https://www.w3.org/TR/digital-credentials/">Digital Credentials API</a>, the browser mediates between a website and a digital wallet. By default, the wallet is not informed whether the user is browsing privately. Specification authors should consider allowing the browser to communicate the browsing mode to that party. The wallet could then avoid retaining a record of the interaction or apply stronger privacy protections such as zero-knowledge proofs. The mechanism must ensure that the additional disclosure does not lead to differences observable by the site. As placing conformance requirements on third-party dependencies is difficult, such guidance will likely remain non-normative.
+Some web features involve parties beyond the browser and the website. For example, in the <a href="https://www.w3.org/TR/digital-credentials/">Digital Credentials API</a>, the browser mediates between a website and a digital wallet. By default, the wallet is not informed whether the user is browsing privately.
+When users are expected to trust one of these other parties, specification authors should consider allowing that party to learn the browsing mode so that it can act consistently. For example, a wallet in private mode could avoid retaining a record of the interaction or apply stronger privacy protections such as zero-knowledge proofs. The mechanism must ensure that the additional disclosure does not lead to differences observable by the site. As placing conformance requirements on third-party dependencies is difficult, such guidance will likely remain non-normative.
 </p>
 
 </section>
@@ -172,7 +174,7 @@ Therefore, the TAG finds that:
 <ul>
   <li><p>As private browsing modes become an important part of the web, we applaud the browser vendors’ continued development in this area.</p></li>
   <li><p>Spec authors should continue adding further privacy-friendly functions when users are in private browsing mode.</p></li>
-  <li><p>When a feature is expected to behave differently in private browsing modes, spec authors should describe both behaviors explicitly and declare both of them conforming.</p></li>
+  <li><p>When a feature is expected to behave differently in private browsing or lockdown modes, spec authors should describe both behaviors explicitly and declare both of them conforming.</p></li>
   <li><p>Spec authors and browser vendors should work towards making private browsing mode indistinguishable to websites from normal browsing, to respect the user’s privacy in choosing it.</p></li>
 </ul>
 </section>
